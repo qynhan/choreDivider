@@ -7,6 +7,7 @@ import {
     GoogleAuthProvider,
     signInWithPopup
 } from "firebase/auth"
+
 import { auth } from "../firebase"
 
 const userAuthContext = createContext();
@@ -19,7 +20,7 @@ export function UserAuthContextProvider({ children }){
     }
 
     function logIn(email, password){
-        console.log("Email", email);
+        // console.log("Email", email);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
