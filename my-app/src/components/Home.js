@@ -50,7 +50,7 @@ const Home = () => {
                 <Wrapper />
                 <CardWrapper />
                 <ReadMoreBtn style={{ margin: "72px" }} className={classes.viewBtn}>Pick Your Pet</ReadMoreBtn>
-                {/* <div className="d-grip gap-2 "> */}
+
                 <div>
                     <Button variant="primary" onClick={handleLogOut}>Log out</Button>
                 </div>
