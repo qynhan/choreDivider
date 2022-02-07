@@ -1,38 +1,44 @@
 import { Routes, Route } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./App.css";
 
-
+import HeaderBar from "./headerBar";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Card from "./components/GroupsPg/Cards";
+
 
 function App() {
   
   return (
+    <div className="App">
+      
+      <Container>
+        <Row>
+          <Col>
+            <UserAuthContextProvider>
+              <Routes>
+                <Route path="/home" 
+                  element={
+                    <ProtectedRoute>
+                      <Home />
+                    </ProtectedRoute> }/>
+                <Route path="/" element={<Login />}/>
+                <Route path="/signup" element={<Signup />}/> 
+                <Route path="/YourGroups" element={<Card />}/>
+                
+              </Routes>
 
-    <Container>
-      <Row>
-        <Col>
-          <UserAuthContextProvider>
-            <Routes>
-              <Route path="/home" 
-                element={
-                  <ProtectedRoute>
-                    <Home />
-                  </ProtectedRoute> }/>
-              <Route path="/" element={<Login />}/>
-              <Route path="/signup" element={<Signup />}/> 
-              
-            </Routes>
-
-          </UserAuthContextProvider>
-          
-        </Col>
-      </Row>
-    </Container>
+            </UserAuthContextProvider>
+            
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 

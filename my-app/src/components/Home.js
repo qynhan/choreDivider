@@ -1,4 +1,6 @@
+import React, { useState } from "react"
 import { Button } from "react-bootstrap"
+import { Link, useNavigate } from "react-router-dom"
 import { useUserAuth } from "../contexts/UserAuthContext";
 import Carousel from "react-elastic-carousel";
 import Item from "./Item";
@@ -10,6 +12,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Wrapper from "./Header/Wrapper";
 import CardWrapper from "./Cardwrapper/CardWrapper";
 import { ReadMoreBtn } from "./Styledcomponents/StyledComponents";
+import GroupsCard from "./GroupsPg/groupCard";
+
+import HeaderBar from "../headerBar";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Home = () => {
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
     const { user, logOut } = useUserAuth();
     // console.log(user);
     const handleLogOut = async () => {
@@ -39,23 +46,39 @@ const Home = () => {
         }
     }
 
+    const navigateToGroups = async() =>{
+        try{
+            navigate("/YourGroups");
+            // navigate("./groupsCard");
+        }catch(err){
+            setError(err.message);
+        }
+    }
+
     const classes = useStyles();
 
     return (
-        <div className="p-4 box my-3 text-center">
-            Hello Welcome <br />
-            {user && user.email}
+        <>
+            <HeaderBar/>
+            <div className="p-4 box my-3 text-center">
+                Hello Welcome <br />
+                {user && user.email}
 
-            <div className={classes.root}>
-                <Wrapper />
-                <CardWrapper />
-                <ReadMoreBtn style={{ margin: "72px" }} className={classes.viewBtn}>Pick Your Pet</ReadMoreBtn>
-
-                <div>
-                    <Button variant="primary" onClick={handleLogOut}>Log out</Button>
+                <div className={classes.root}>
+                    <Wrapper />
+                    <CardWrapper />
+                    <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn}>Pick Your Pet</ReadMoreBtn>
+                    <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn} onClick={navigateToGroups}>See Your Groups</ReadMoreBtn>
+                    <div>
+                        {/* <Link to="./GroupsPg/groupCard">See Your Groups</Link> */}
+                    </div>
+                    <div>
+                        <Button variant="primary" onClick={handleLogOut}>Log out</Button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
+        
     )
 }
 
