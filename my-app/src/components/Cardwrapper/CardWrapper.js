@@ -3,7 +3,7 @@ import { ArrowForward, ArrowBack } from "@material-ui/icons";
 import styles from "./styles.module.css";
 import { makeStyles } from "@material-ui/core/styles";
 
-import ProductCard from "../Cards/ProductCard";
+import ProductCard from "../Card/ProductCard";
 
 import HeadsetImg from "../../image/carousel_img1.png";
 import LaptopImg from "../../image/carousel_img2.png";
@@ -136,15 +136,13 @@ const CardWrapper = ({
       )}
       <ul
         style={{ ...style }}
-        className={`${styles.cardCarousel} ${
-          containerClassName ? containerClassName : styles.carouselDefault
-        }`}
+        className={`${styles.cardCarousel} ${containerClassName ? containerClassName : styles.carouselDefault
+          }`}
       >
         <li
           key="child1"
-          className={`${cardClassName ? cardClassName : ""} ${
-            styles.card
-          } ${setCardStatus(indexes, 0)}`}
+          className={`${cardClassName ? cardClassName : ""} ${styles.card
+            } ${setCardStatus(indexes, 0)}`}
         >
           <ProductCard
             key={"child1"}
@@ -156,9 +154,8 @@ const CardWrapper = ({
         </li>
         <li
           key="child2"
-          className={`${cardClassName ? cardClassName : ""} ${
-            styles.card
-          } ${setCardStatus(indexes, 1)}`}
+          className={`${cardClassName ? cardClassName : ""} ${styles.card
+            } ${setCardStatus(indexes, 1)}`}
         >
           <ProductCard
             key={"child2"}
@@ -170,9 +167,8 @@ const CardWrapper = ({
         </li>
         <li
           key="child3"
-          className={`${cardClassName ? cardClassName : ""} ${
-            styles.card
-          } ${setCardStatus(indexes, 2)}`}
+          className={`${cardClassName ? cardClassName : ""} ${styles.card
+            } ${setCardStatus(indexes, 2)}`}
         >
           <ProductCard
             key={"child3"}

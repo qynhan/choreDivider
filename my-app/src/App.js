@@ -13,28 +13,28 @@ import Card from "./components/GroupsPg/Cards";
 
 
 function App() {
-  
+
   return (
     <div className="App">
-      
+
       <Container>
         <Row>
           <Col>
             <UserAuthContextProvider>
               <Routes>
-                <Route path="/home" 
+                <Route path="/home"
                   element={
                     <ProtectedRoute>
                       <Home />
-                    </ProtectedRoute> }/>
-                <Route path="/" element={<Login />}/>
-                <Route path="/signup" element={<Signup />}/> 
-                <Route path="/YourGroups" element={<Card />}/>
-                
+                    </ProtectedRoute>} />
+                <Route path="/" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/YourGroups" element={<Card />} />
+                <Route path="/YourGroups" element={<Task />} />
               </Routes>
 
             </UserAuthContextProvider>
-            
+
           </Col>
         </Row>
       </Container>

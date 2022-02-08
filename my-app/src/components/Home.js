@@ -14,6 +14,9 @@ import CardWrapper from "./Cardwrapper/CardWrapper";
 import { ReadMoreBtn } from "./Styledcomponents/StyledComponents";
 import GroupsCard from "./GroupsPg/groupCard";
 
+import ToDoList from "./Tasks/ToDoList";
+import ToDoForm from "./Tasks/ToDoForm";
+
 import HeaderBar from "../headerBar";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,20 +49,29 @@ const Home = () => {
         }
     }
 
-    const navigateToGroups = async() =>{
-        try{
+    const navigateToGroups = async () => {
+        try {
             navigate("/YourGroups");
             // navigate("./groupsCard");
-        }catch(err){
+        } catch (err) {
             setError(err.message);
         }
     }
 
+
+    const navigateToTasks = async () => {
+        try {
+            navigate("/YourTasks");
+            // navigate("./groupsCard");
+        } catch (err) {
+            setError(err.message);
+        }
+    }
     const classes = useStyles();
 
     return (
         <>
-            <HeaderBar/>
+            <HeaderBar />
             <div className="p-4 box my-3 text-center">
                 Hello Welcome <br />
                 {user && user.email}
@@ -67,18 +79,24 @@ const Home = () => {
                 <div className={classes.root}>
                     <Wrapper />
                     <CardWrapper />
-                    <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn}>Pick Your Pet</ReadMoreBtn>
-                    <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn} onClick={navigateToGroups}>See Your Groups</ReadMoreBtn>
+
                     <div>
+
+                        <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn}>Pick Your Pet</ReadMoreBtn>
+                        <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn} onClick={navigateToGroups}>See Your Groups</ReadMoreBtn>
+                        <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn} onClick={navigateToTasks}>See Your Tasks</ReadMoreBtn>
+
                         {/* <Link to="./GroupsPg/groupCard">See Your Groups</Link> */}
                     </div>
                     <div>
                         <Button variant="primary" onClick={handleLogOut}>Log out</Button>
                     </div>
+
                 </div>
+
             </div>
         </>
-        
+
     )
 }
 
