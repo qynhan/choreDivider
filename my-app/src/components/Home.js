@@ -16,7 +16,7 @@ import GroupsCard from "./GroupsPg/groupCard";
 
 import ToDoList from "./Tasks/ToDoList";
 import ToDoForm from "./Tasks/ToDoForm";
-
+import data from "./data.json";
 import HeaderBar from "../headerBar";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,6 +40,7 @@ const Home = () => {
     const navigate = useNavigate();
     const [error, setError] = useState("");
     const { user, logOut } = useUserAuth();
+    const [toDoList, setToDoList] = useState(data);
     // console.log(user);
     const handleLogOut = async () => {
         try {
@@ -58,7 +59,24 @@ const Home = () => {
         }
     }
 
+    const handleToggle = (id) => {
+        let mapped = toDoList.map(task => {
+            return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task };
+        });
+        setToDoList(mapped);
+    }
+    const handleFilter = () => {
+        let filtered = toDoList.filter(task => {
+            return !task.complete;
+        });
+        setToDoList(filtered);
+    }
 
+    const addTask = (userInput) => {
+        let copy = [...toDoList];
+        copy = [...copy, { id: toDoList.length + 1, task: userInput, complete: false }];
+        setToDoList(copy);
+    }
     const navigateToTasks = async () => {
         try {
             navigate("/YourTasks");
@@ -88,6 +106,7 @@ const Home = () => {
 
                         {/* <Link to="./GroupsPg/groupCard">See Your Groups</Link> */}
                     </div>
+
                     <div>
                         <Button variant="primary" onClick={handleLogOut}>Log out</Button>
                     </div>

@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Container, Row, Col, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./App.css";
-
+import Header from "./header"
 import HeaderBar from "./headerBar";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -10,7 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Card from "./components/GroupsPg/Cards";
-
+import Task from "./components/Tasks/Task";
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
                 <Route path="/" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/YourGroups" element={<Card />} />
-                <Route path="/YourGroups" element={<Task />} />
+                <Route path="/YourTasks" element={<Task />} />
               </Routes>
 
             </UserAuthContextProvider>
