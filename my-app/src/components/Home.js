@@ -41,6 +41,7 @@ const Home = () => {
     const [error, setError] = useState("");
     const { user, logOut } = useUserAuth();
     const [toDoList, setToDoList] = useState(data);
+
     // console.log(user);
     const handleLogOut = async () => {
         try {
@@ -90,6 +91,7 @@ const Home = () => {
     return (
         <>
             <HeaderBar />
+            <div>{loading ? "loading..." : "hello"}</div>
             <div className="p-4 box my-3 text-center">
                 Hello Welcome <br />
                 {user && user.email}

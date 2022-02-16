@@ -11,51 +11,13 @@ import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Card from "./components/GroupsPg/Cards";
 import Task from "./components/Tasks/Task";
-
-import React, { useState, useEffect } from 'react'
-import logo from './logo.svg';
-import './App.css';
-import LoadingScreen from './loading'
+import React, { useState } from "react"
 
 
 function App() {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 6000)
-  }, [])
 
   return (
-    <>
-      {loading === false ? (
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>
-      ) : (
-        <LoadingScreen />
-      )}
-    </>
-  );
-}
 
-export default App;
-view rawApp.js hosted with ❤ by GitHub
-function App() {
-
-  return (
     <div className="App">
 
       <Container>
@@ -68,6 +30,7 @@ function App() {
                     <ProtectedRoute>
                       <Home />
                     </ProtectedRoute>} />
+
                 <Route path="/" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/YourGroups" element={<Card />} />
