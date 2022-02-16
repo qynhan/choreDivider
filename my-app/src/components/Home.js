@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useUserAuth } from "../contexts/UserAuthContext";
@@ -18,6 +18,7 @@ import ToDoList from "./Tasks/ToDoList";
 import ToDoForm from "./Tasks/ToDoForm";
 import data from "./data.json";
 import HeaderBar from "../headerBar";
+import logo from "../logo.svg";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,7 +42,13 @@ const Home = () => {
     const [error, setError] = useState("");
     const { user, logOut } = useUserAuth();
     const [toDoList, setToDoList] = useState(data);
+    const [loading, setLoading] = useState(true);
 
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+    }, []);
     // console.log(user);
     const handleLogOut = async () => {
         try {
@@ -91,7 +98,7 @@ const Home = () => {
     return (
         <>
             <HeaderBar />
-            <div>{loading ? "loading..." : "hello"}</div>
+            <div>{loading ? <img src={logo} alt="App Logo" /> : "hello"}</div>
             <div className="p-4 box my-3 text-center">
                 Hello Welcome <br />
                 {user && user.email}
