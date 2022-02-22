@@ -5,8 +5,18 @@ import data from "../data.json";
 import Header from "../../header";
 import ToDoList from "./ToDoList";
 import ToDoForm from './ToDoForm';
+// calendar
+import Calendar from 'react-calendar';
 
 function Task() {
+
+    // calendar
+    const [date, setDate] = useState(new Date());
+
+    const onChange = date =>{
+        setDate(date);
+    };
+
 
     const [toDoList, setToDoList] = useState(data);
 
@@ -32,7 +42,12 @@ function Task() {
 
     return (
         <div className="App">
+
             <Header />
+
+            <Calendar onChange={onChange} value={date} />
+            {date.toString()}
+
             <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter} />
             <ToDoForm addTask={addTask} />
         </div>
