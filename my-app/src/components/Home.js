@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useUserAuth } from "../contexts/UserAuthContext";
@@ -42,13 +42,8 @@ const Home = () => {
     const [error, setError] = useState("");
     const { user, logOut } = useUserAuth();
     const [toDoList, setToDoList] = useState(data);
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-    }, []);
+
     // console.log(user);
     const handleLogOut = async () => {
         try {
@@ -98,7 +93,7 @@ const Home = () => {
     return (
         <>
             <HeaderBar />
-            <div>{loading ? <img src={logo} alt="App Logo" /> : "hello"}</div>
+
             <div className="p-4 box my-3 text-center">
                 Hello Welcome <br />
                 {user && user.email}

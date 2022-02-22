@@ -11,11 +11,17 @@ import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Card from "./components/GroupsPg/Cards";
 import Task from "./components/Tasks/Task";
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react";
 
+import logo from "./logo.svg";
 
 function App() {
-
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, []);
   return (
 
     <div className="App">
