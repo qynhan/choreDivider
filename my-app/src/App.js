@@ -24,7 +24,7 @@ function App() {
   return (
 
     <div className="App">
-      <div>{loading ? <img src={logo} alt="App Logo" /> : <UserAuthContextProvider>
+      <div>{loading ? <center><img src={logo} alt="App Logo" /><h1>Welcome Adapets:)</h1></center> : <UserAuthContextProvider>
         <Routes>
           <Route path="/home"
             element={

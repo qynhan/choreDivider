@@ -104,10 +104,10 @@ const Home = () => {
 
                     <div>
 
-                        <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn}>Pick Your Pet</ReadMoreBtn>
+
                         <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn} onClick={navigateToGroups}>See Your Groups</ReadMoreBtn>
                         <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn} onClick={navigateToTasks}>See Your Tasks</ReadMoreBtn>
-
+                        <ReadMoreBtn style={{ margin: "50px" }} className={classes.viewBtn}>Pick Your Pet</ReadMoreBtn>
                         {/* <Link to="./GroupsPg/groupCard">See Your Groups</Link> */}
                     </div>
 

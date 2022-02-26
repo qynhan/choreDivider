@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 //mock data
 import data from "../data.json";
+//import data from '../../firebase'
 //components
 import Header from "../../header";
 import ToDoList from "./ToDoList";
@@ -13,7 +14,7 @@ function Task() {
     // calendar
     const [date, setDate] = useState(new Date());
 
-    const onChange = date =>{
+    const onChange = date => {
         setDate(date);
     };
 
