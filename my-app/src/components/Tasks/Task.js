@@ -9,7 +9,6 @@ import ToDoForm from './ToDoForm';
 
 function Task() {
 
-<<<<<<< HEAD
     // calendar
     const [date, setDate] = useState(new Date());
 
@@ -18,8 +17,6 @@ function Task() {
     };
 
 
-=======
->>>>>>> parent of bd5da3a... added calendar feature
     const [toDoList, setToDoList] = useState(data);
 
     const handleToggle = (id) => {
