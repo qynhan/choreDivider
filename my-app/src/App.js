@@ -12,7 +12,6 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Card from "./components/GroupsPg/Cards";
 import Task from "./components/Tasks/Task";
 import React, { useEffect, useState } from "react";
-
 import logo from "./logo.svg";
 
 function App() {
@@ -25,8 +24,7 @@ function App() {
   return (
 
     <div className="App">
-<<<<<<< HEAD
-      <div>{loading ? <center><img src={logo} alt="App Logo" /><h1>Welcome Adapets:)</h1></center> : <UserAuthContextProvider>
+      <div>{loading ? <img src={logo} alt="App Logo" /> : <UserAuthContextProvider>
         <Routes>
           <Route path="/home"
             element={
@@ -39,27 +37,12 @@ function App() {
           <Route path="/YourGroups" element={<Card />} />
           <Route path="/YourTasks" element={<Task />} />
         </Routes>
-=======
->>>>>>> parent of 9dc1bff... moved loading image
 
+      </UserAuthContextProvider>}</div>;
       <Container>
         <Row>
           <Col>
-            <UserAuthContextProvider>
-              <Routes>
-                <Route path="/home"
-                  element={
-                    <ProtectedRoute>
-                      <Home />
-                    </ProtectedRoute>} />
 
-                <Route path="/" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/YourGroups" element={<Card />} />
-                <Route path="/YourTasks" element={<Task />} />
-              </Routes>
-
-            </UserAuthContextProvider>
 
           </Col>
         </Row>
