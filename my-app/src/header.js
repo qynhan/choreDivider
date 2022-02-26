@@ -1,12 +1,10 @@
 import React from "react";
-import HeaderBar from "./headerBar";
 
 const Header = () => {
     return (
-        <div>
-            <HeaderBar/>
+        <header>
             <h1>To do tasks</h1>
-        </div>
+        </header>
     );
 }
 

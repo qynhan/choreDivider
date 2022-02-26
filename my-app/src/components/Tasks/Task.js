@@ -6,11 +6,10 @@ import data from "../data.json";
 import Header from "../../header";
 import ToDoList from "./ToDoList";
 import ToDoForm from './ToDoForm';
-// calendar
-import Calendar from 'react-calendar';
 
 function Task() {
 
+<<<<<<< HEAD
     // calendar
     const [date, setDate] = useState(new Date());
 
@@ -19,6 +18,8 @@ function Task() {
     };
 
 
+=======
+>>>>>>> parent of bd5da3a... added calendar feature
     const [toDoList, setToDoList] = useState(data);
 
     const handleToggle = (id) => {
@@ -43,12 +44,7 @@ function Task() {
 
     return (
         <div className="App">
-
             <Header />
-
-            <Calendar onChange={onChange} value={date} />
-            {date.toString()}
-
             <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter} />
             <ToDoForm addTask={addTask} />
         </div>
