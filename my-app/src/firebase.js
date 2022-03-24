@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/combat/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
