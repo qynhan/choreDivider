@@ -41,15 +41,16 @@ function Task() {
     }
 
     return (
-        <div className="App">
+        <div className="container">
+            <div className="app-wrapper">
+                <Header />
 
-            <Header />
+                <Calendar onChange={onChange} value={date} />
+                {date.toString()}
 
-            <Calendar onChange={onChange} value={date} />
-            {date.toString()}
-
-            <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter} />
-            <ToDoForm addTask={addTask} />
+                <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter} />
+                <ToDoForm addTask={addTask} />
+            </div>
         </div>
     );
 }

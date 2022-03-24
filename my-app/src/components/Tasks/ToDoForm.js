@@ -1,3 +1,4 @@
+///*
 import React, { useState } from 'react';
 
 const ToDoForm = ({ addTask }) => {
@@ -21,3 +22,47 @@ const ToDoForm = ({ addTask }) => {
 };
 
 export default ToDoForm;
+//*/
+
+/*
+import React, { useState } from "react";
+import firebase from "../../firebase";
+
+export default function ToDoForms() {
+    const [title, setTitle] = useState("");
+
+    const handleChange = (e) => {
+        setTitle(e.target.value);
+    };
+
+    const createTodo = (event) => {
+        event.preventDefault()
+        const todoRef = firebase.database().ref("Todo");
+        const todo = {
+            title,
+            completed: false,
+        }
+        todoRef.push(todo);
+        setTitle("");
+    };
+
+    
+
+    return (
+        <form onSubmit={createTodo}>
+            <input 
+                type="text"
+                placeholder="Enter a Todo..."
+                className="task-input"
+                value={title}
+                required
+                onChange={handleChange}
+            />
+            <button className="button-add" type="submit">
+                Add
+            </button>
+        </form>
+    )
+
+}
+*/
