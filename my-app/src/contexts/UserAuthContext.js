@@ -1,25 +1,25 @@
-import { createContext, useEffect, useState, useContext } from "react"
-import { 
+import { createContext, useEffect, useState, useContext } from "react";
+import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
     GoogleAuthProvider,
     signInWithPopup
-} from "firebase/auth"
+} from "firebase/auth"; 
 
-import { auth } from "../firebase"
+import { auth } from "../firebase";
 
 const userAuthContext = createContext();
 
-export function UserAuthContextProvider({ children }){
+export function UserAuthContextProvider({ children }) {
 
     const [user, setUser] = useState("");
-    function signUp(email, password){
+    function signUp(email, password) {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    function logIn(email, password){
+    function logIn(email, password) {
         // console.log("Email", email);
         return signInWithEmailAndPassword(auth, email, password);
     }
@@ -50,7 +50,7 @@ export function UserAuthContextProvider({ children }){
 
 }
 
-export function useUserAuth(){
+export function useUserAuth() {
     return useContext(userAuthContext);
 }
 
